@@ -55,10 +55,10 @@ const Card = (props) => {
           </div>
           <div className="flex gap-2 items-center">
             <p>
-              Posted by <a>{username}</a>
+              Posted by <span className="text-blue-400">{username}</span>
             </p>
-            <FiberManualRecordIcon className="w-2 h-2" />
-            <span>{createdAt}</span>
+            <span>|</span>
+            <span className="text-xs text-[#aaa]">{createdAt}</span>
           </div>
         </div>
         {/* 2nd */}
@@ -69,7 +69,7 @@ const Card = (props) => {
               return <Chip label={currentTag} key={index} />;
             })}
           </div>
-          <p className="text-sm">{postDescription}</p>
+          <p className="text-sm opacity-80">{postDescription}</p>
         </div>
         {/* 3rd */}
         <div className="flex justify-between pt-2 border-t">

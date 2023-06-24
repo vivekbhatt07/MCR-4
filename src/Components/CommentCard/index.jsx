@@ -26,8 +26,8 @@ const CommentCard = (props) => {
             <p>
               <span>{username}</span>
             </p>
-            <FiberManualRecordIcon className="w-2 h-2" />
-            <span>{createdAt}</span>
+            <span>|</span>
+            <span className="text-xs text-[#aaa]">{createdAt}</span>
           </div>
           <p>
             Replying to <a className="text-blue-400">{postUserName}</a>

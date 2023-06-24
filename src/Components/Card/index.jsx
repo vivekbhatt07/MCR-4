@@ -6,6 +6,7 @@ import ShareIcon from "@mui/icons-material/Share";
 import CommentIcon from "@mui/icons-material/Comment";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
+import { Link } from "react-router-dom";
 
 const Card = (props) => {
   const {
@@ -23,7 +24,7 @@ const Card = (props) => {
     isBookmarked,
   } = props;
   return (
-    <article className="flex gap-4">
+    <article className="flex gap-8 px-4 py-2 bg-[#fff] rounded-xl">
       <div className="flex flex-col gap-3">
         <button>
           <ArrowDropUpIcon />
@@ -59,9 +60,9 @@ const Card = (props) => {
         </div>
         {/* 3rd */}
         <div className="flex justify-between pt-2 border-t">
-          <button>
+          <Link to={`/postDetail/${postId}`}>
             <CommentIcon />
-          </button>
+          </Link>
           <button>
             <ShareIcon />
           </button>

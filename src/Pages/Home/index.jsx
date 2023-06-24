@@ -21,7 +21,7 @@ const Home = () => {
       </div>
       <Header className="bottom_left bg-blue-200" />
       <div className="bottom_center flex flex-col gap-9 px-4 py-2">
-        <div className="flex gap-4">
+        <div className="flex gap-4 bg-blue-950 px-3 py-2 text-blue-50 rounded-lg justify-center">
           <span>
             {sortValue == "latest" ? "LATEST POSTS" : "MOST UPVOTED POSTS"}
           </span>
@@ -30,11 +30,13 @@ const Home = () => {
           return <Card key={currentPost.postId} {...currentPost} />;
         })}
       </div>
-      <div className="bottom_right p-4 bg-blue-400">
+      <div className="bottom_right py-2 px-4 bg-blue-400">
         <div className="flex flex-col gap-3">
-          <span>SORT BY</span>
+          <span className="flex bg-blue-950 px-3 py-2 text-blue-50 rounded-lg justify-center">
+            SORT BY
+          </span>
           <select
-            className="p-2"
+            className="p-2 rounded-md"
             name="sortBySelect"
             onChange={(event) => {
               handleSort(event);

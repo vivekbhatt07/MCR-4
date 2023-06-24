@@ -1,6 +1,7 @@
 import { Home, Explore, Bookmark, AccountCircle } from "@mui/icons-material";
 import { Link } from "@mui/material";
 import { useData } from "../../context/DataContext";
+import { NavLink } from "react-router-dom";
 
 const Header = (props) => {
   const { state } = useData();
@@ -8,19 +9,38 @@ const Header = (props) => {
   return (
     <header className={classes}>
       <nav>
-        <Link className="p-4 w-full flex items-center gap-4 cursor-pointer border no-underline">
+        <NavLink
+          className="p-4 w-full flex items-center gap-4 cursor-pointer"
+          // style={{ textDecoration: "none" }}
+          style={(isActive) => {
+            return {
+              backgroundColor: isActive ? "#172554" : "transparent",
+              color: isActive ? "#fff" : "#000",
+              textDecoration: "none",
+            };
+          }}
+        >
           <Home />
-          <span className="text-blue-950">Home</span>
-        </Link>
-        <Link className="p-4 w-full flex items-center gap-4 cursor-pointer border no-underline">
+          <span className="">Home</span>
+        </NavLink>
+        <Link
+          className="p-4 w-full flex items-center gap-4 cursor-pointer border"
+          style={{ textDecoration: "none" }}
+        >
           <Explore />
           <span className="text-blue-950">Explore</span>
         </Link>
-        <Link className="p-4 w-full flex items-center gap-4 cursor-pointer border no-underline">
+        <Link
+          className="p-4 w-full flex items-center gap-4 cursor-pointer border"
+          style={{ textDecoration: "none" }}
+        >
           <Bookmark />
           <span className="text-blue-950">Bookmarks</span>
         </Link>
-        <Link className="p-4 w-full flex items-center gap-4 cursor-pointer border no-underline">
+        <Link
+          className="p-4 w-full flex items-center gap-4 cursor-pointer border"
+          style={{ textDecoration: "none" }}
+        >
           <AccountCircle />
           <span className="text-blue-950">Profile</span>
         </Link>

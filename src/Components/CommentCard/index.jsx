@@ -35,13 +35,13 @@ const CommentCard = (props) => {
           <p className="font-bold">{comment}</p>
         </div>
         <div className="flex justify-between pt-2 border-t">
-          <button>
+          <button className="rounded-full p-2 hover:bg-blue-950 hover:opacity-60 transition-all duration-200 hover:text-blue-50 active:scale-95">
             <FavoriteBorderIcon />
           </button>
-          <button>
+          <button className="rounded-full p-2 hover:bg-blue-950 hover:opacity-60 transition-all duration-200 hover:text-blue-50 active:scale-95">
             <CommentIcon />
           </button>
-          <button>
+          <button className="rounded-full p-2 hover:bg-blue-950 hover:opacity-60 transition-all duration-200 hover:text-blue-50 active:scale-95">
             <ShareIcon />
           </button>
         </div>

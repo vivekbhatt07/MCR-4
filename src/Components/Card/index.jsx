@@ -28,19 +28,21 @@ const Card = (props) => {
   const { dispatch } = useData();
   return (
     <article className="flex gap-8 px-4 py-2 bg-[#fff] rounded-xl">
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-3 items-center">
         <button
           onClick={() => {
             dispatch({ type: "INCREMENT_VOTE", payload: postId });
           }}
+          className="rounded-full p-1 hover:bg-blue-950 hover:opacity-60 transition-all duration-200 hover:text-blue-50 active:scale-95"
         >
-          <ArrowDropUpIcon />
+          <ArrowDropUpIcon style={{ fontSize: "24px" }} />
         </button>
         <span>{upvotes - downvotes}</span>
         <button
           onClick={() => {
             dispatch({ type: "DECREMENT_VOTE", payload: postId });
           }}
+          className="rounded-full p-1 hover:bg-blue-950 hover:opacity-60 transition-all duration-200 hover:text-blue-50 active:scale-95"
         >
           <ArrowDropDownIcon />
         </button>
@@ -71,16 +73,20 @@ const Card = (props) => {
         </div>
         {/* 3rd */}
         <div className="flex justify-between pt-2 border-t">
-          <Link to={`/postDetail/${postId}`}>
+          <Link
+            to={`/postDetail/${postId}`}
+            className="rounded-full p-2 hover:bg-blue-950 hover:opacity-60 transition-all duration-200 hover:text-blue-50 active:scale-95"
+          >
             <CommentIcon />
           </Link>
-          <button>
+          <button className="rounded-full p-2 hover:bg-blue-950 hover:opacity-60 transition-all duration-200 hover:text-blue-50 active:scale-95">
             <ShareIcon />
           </button>
           <button
             onClick={() => {
               dispatch({ type: "TOGGLE_BOOKMARK", payload: postId });
             }}
+            className="rounded-full p-2 hover:bg-blue-950 hover:opacity-60 transition-all duration-200 hover:text-blue-50 active:scale-95"
           >
             {isBookmarked ? <BookmarkIcon /> : <BookmarkBorderIcon />}
           </button>

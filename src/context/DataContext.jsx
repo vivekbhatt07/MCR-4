@@ -13,6 +13,36 @@ const DataReducer = (state, action) => {
     case "SORT": {
       return { ...state, sortType: action.payload };
     }
+    case "INCREMENT_VOTE": {
+      return {
+        ...state,
+        formList: state.formList.map((currentPost) => {
+          return currentPost.postId == action.payload
+            ? { ...currentPost, upvotes: currentPost.upvotes + 1 }
+            : currentPost;
+        }),
+      };
+    }
+    case "DECREMENT_VOTE": {
+      return {
+        ...state,
+        formList: state.formList.map((currentPost) => {
+          return currentPost.postId == action.payload
+            ? { ...currentPost, upvotes: currentPost.upvotes - 1 }
+            : currentPost;
+        }),
+      };
+    }
+    case "TOGGLE_BOOKMARK": {
+      return {
+        ...state,
+        formList: state.formList.map((currentPost) => {
+          return currentPost.postId == action.payload
+            ? { ...currentPost, isBookmarked: !currentPost.isBookmarked }
+            : currentPost;
+        }),
+      };
+    }
   }
 };
 

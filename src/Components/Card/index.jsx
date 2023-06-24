@@ -1,6 +1,7 @@
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
+import { useData } from "../../context/DataContext";
 import { Chip } from "@mui/material";
 import ShareIcon from "@mui/icons-material/Share";
 import CommentIcon from "@mui/icons-material/Comment";
@@ -23,14 +24,24 @@ const Card = (props) => {
     comments,
     isBookmarked,
   } = props;
+
+  const { dispatch } = useData();
   return (
     <article className="flex gap-8 px-4 py-2 bg-[#fff] rounded-xl">
       <div className="flex flex-col gap-3">
-        <button>
+        <button
+          onClick={() => {
+            dispatch({ type: "INCREMENT_VOTE", payload: postId });
+          }}
+        >
           <ArrowDropUpIcon />
         </button>
         <span>{upvotes - downvotes}</span>
-        <button>
+        <button
+          onClick={() => {
+            dispatch({ type: "DECREMENT_VOTE", payload: postId });
+          }}
+        >
           <ArrowDropDownIcon />
         </button>
       </div>
@@ -66,8 +77,12 @@ const Card = (props) => {
           <button>
             <ShareIcon />
           </button>
-          <button>
-            <BookmarkBorderIcon />
+          <button
+            onClick={() => {
+              dispatch({ type: "TOGGLE_BOOKMARK", payload: postId });
+            }}
+          >
+            {isBookmarked ? <BookmarkIcon /> : <BookmarkBorderIcon />}
           </button>
         </div>
       </div>

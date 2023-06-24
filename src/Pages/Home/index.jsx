@@ -22,7 +22,9 @@ const Home = () => {
       <Header className="bottom_left bg-blue-200" />
       <div className="bottom_center flex flex-col gap-9 px-4 py-2">
         <div className="flex gap-4">
-          <span>LATEST POSTS</span>
+          <span>
+            {sortValue == "latest" ? "LATEST POSTS" : "MOST UPVOTED POSTS"}
+          </span>
         </div>
         {originalList.map((currentPost) => {
           return <Card key={currentPost.postId} {...currentPost} />;

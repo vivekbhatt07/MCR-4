@@ -1,0 +1,26 @@
+.page {
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+  grid-template-rows: 10vh 90vh;
+  grid-template-areas:
+    "top top top"
+    "bottomLeft bottomCenter bottomRight";
+}
+
+.top {
+  grid-area: top;
+}
+
+.bottom_left {
+  grid-area: bottomLeft;
+}
+
+.bottom_center {
+  grid-area: bottomCenter;
+  background: yellow;
+}
+
+.bottom_right {
+  grid-area: bottomRight;
+  background: blue;
+}
